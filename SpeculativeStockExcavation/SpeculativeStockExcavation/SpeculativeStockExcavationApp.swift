@@ -12,7 +12,7 @@ import SpeculativeStockExcavationPackage
 struct SpeculativeStockExcavationApp: App {
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            ContentView()a
         }
     }
 }
