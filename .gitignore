@@ -130,7 +130,7 @@ fastlane/test_output
 # Using xcodegen to generate .xcodeproj file to avoid frequent conflicts,
 # so .xcodeproj file can be ignored.
 
-*.xcodeproj
+#*.xcodeproj
 
 # LicensePlist
 #
