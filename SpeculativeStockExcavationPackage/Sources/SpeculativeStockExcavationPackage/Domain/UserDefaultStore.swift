@@ -7,12 +7,6 @@
 
 import Foundation
 
-struct FavoriteModel: Codable, Identifiable {
-    var id = UUID()
-    var url: String
-    var name: String
-}
-
 protocol UserDefaultStore {
     func saveFavoriteList(saveItem: FavoriteModel)
     func getFavoriteList() -> [FavoriteModel]

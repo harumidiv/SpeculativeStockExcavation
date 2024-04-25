@@ -8,14 +8,6 @@
 import SwiftUI
 import SwiftSoup
 
-struct StockData: Identifiable {
-    let id = UUID()
-    let name: String
-    let url: String
-    let price: Int?
-    let priceIncreaseRate: String
-}
-
 public struct ContentView: View {
     public var body: some View {
         FooterTabView()
