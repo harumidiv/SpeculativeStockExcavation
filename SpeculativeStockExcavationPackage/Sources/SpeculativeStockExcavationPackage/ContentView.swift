@@ -8,12 +8,6 @@
 import SwiftUI
 import SwiftSoup
 
-struct FavoriteModel: Codable, Identifiable {
-    var id = UUID()
-    var url: String
-    var name: String
-}
-
 struct StockData: Identifiable {
     let id = UUID()
     let name: String
@@ -22,13 +16,13 @@ struct StockData: Identifiable {
     let priceIncreaseRate: String
 }
 
-struct ContentView: View {
+public struct ContentView: View {
     @State private var stockURL: URL?
     @State private var spaculativeStockList: [StockData] = []
     @State private var selection: Int = 1
     @State private var favoriteList: [FavoriteModel] = UserDefaultStoreImpl.share.getFavoriteList()
     
-    var body: some View {
+    public var body: some View {
         TabView(selection: $selection) {
             NavigationView {
                 scraypingView()
@@ -68,6 +62,8 @@ struct ContentView: View {
             scraypingPriceIncreceRateRanking()
         }
     }
+    
+    public init() {}
 }
 
 // MARK: View
