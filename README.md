@@ -1,0 +1,2 @@
+# SpeculativeStockExcavation
+大口投資家の買い集めの兆候を監視するためのアプリ
