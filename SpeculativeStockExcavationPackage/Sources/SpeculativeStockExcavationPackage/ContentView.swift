@@ -157,7 +157,8 @@ extension ContentView {
                     
                     let stockDocument = try SwiftSoup.parse(stockInfo.html)
                     
-                    let marketCapitalization = try stockDocument
+                    
+                    if let marketCapitalization = try stockDocument
                         .select("div._1IdtoV3i._1eM32nld")
                         .select("div._3gfVrz4p._3hJ55Ncb")
                         .select("section._3QnSv6hl.v421ieSL")
@@ -168,20 +169,19 @@ extension ContentView {
                         .select("dd._1m_13krb")
                         .select("span._1fofaCjs._2aohzPlv._1DMRub9m")
                         .select("span._1-yujUee")
-                        .select("span._3rXWJKZF._11kV6f2G")[0].text()
-                    
-                    if marketCapitalization.count >= 6 { // 100億以上を弾く
-                        continue
+                        .select("span._3rXWJKZF._11kV6f2G").first {
+
+                        if try marketCapitalization.text().count >= 6 { // 100億以上を弾く
+                            continue
+                        }
+                
+                        spaculativeStock.append(stockInfo.stock)
                     }
-                    
-                    
-                    
-                    spaculativeStock.append(stockInfo.stock)
                 }
                 
                 spaculativeStockList = spaculativeStock
             } catch {
-                print("error")
+                print("error: \(error)")
             }
         }
     }
